@@ -2,12 +2,8 @@
   <nav-bar></nav-bar>
 </template>
 <script setup>
+import navBar from "@/components/navBar/index.vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-const toAbout = () => {
-  router.push({
-    name: "about",
-  });
-};
 </script>

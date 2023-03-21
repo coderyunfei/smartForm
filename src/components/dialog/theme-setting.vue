@@ -103,7 +103,7 @@
         <div class="logo-setting">
           <div class="logo-tip">
             <span>此功能旗舰版限时免费</span>
-            <a href="">功能说明</a>
+            <a href="javascript:;" @click="showLogoDialog">功能说明 </a>
           </div>
           <div class="logo-choose">
             <div class="logo-choose-item">
@@ -139,7 +139,6 @@
       v-model:visible="resetDialog"
       title="恢复默认主题"
       width="420px"
-      @confirmCb="dialogConfirm"
     >
       <template #dialogBody>
         <div class="content">
@@ -167,9 +166,10 @@
             >企业专属LOGO功能，可设置在网页顶部、表单底部展示企业LOGO及文字，突显企业品牌</span
           >
         </div>
-        <img src="" alt="" />
+        <img src="@/assets/img/setlogo.png" alt="" class="descImg" />
       </template>
       <template #defineFooter>
+        <!-- 非旗舰版 -->
         <div class="dialog-footer logo-footer">
           <div class="footer-left">
             旗舰版限时免费，可升级套餐或单独开通使用
@@ -177,8 +177,41 @@
           <div class="footer-right">
             <span class="oldprice">原价 499元/年</span>
             <span class="nowprice"><em>180</em>元/年</span>
-            <el-button type="primary">申请开通</el-button>
+            <el-button type="primary" @click="applyDialog = true"
+              >申请开通</el-button
+            >
           </div>
+        </div>
+        <!-- 旗舰版 -->
+        <!-- <div class="footer-right">
+          <el-button type="primary" @click="logoDialog = false"
+            >我知道了</el-button
+          >
+        </div> -->
+      </template>
+    </common-dialog>
+
+    <!-- 申请成功弹窗 -->
+    <common-dialog
+      v-model:visible="applyDialog"
+      title="申请开通"
+      width="600px"
+      :showFooter="showFooter"
+    >
+      <template #dialogBody>
+        <div class="applyContent">
+          <i class="web-iconfont web-icon-icon-test7"></i>
+          <span class="successCon">申请成功</span>
+          <span class="subSuccessCon"
+            >申请成功，我们的客服人员将尽快与您联系，您还可以拨打热线咨询详情：0571-28834699</span
+          >
+        </div>
+      </template>
+      <template #defineFooter>
+        <div class="footer-right">
+          <el-button type="primary" @click="applyDialog = false"
+            >我知道了</el-button
+          >
         </div>
       </template>
     </common-dialog>
@@ -191,8 +224,9 @@ import { ref } from "vue";
 import commonDialog from "./common-dialog.vue";
 const radio1 = ref("1");
 const showFooter = ref(false);
-const logoDialog = ref(true);
+const logoDialog = ref(false);
 const resetDialog = ref(false);
+const applyDialog = ref(false);
 
 const emit = defineEmits(["update:themeDialog"]);
 const props = defineProps({
@@ -216,6 +250,11 @@ const openResetDefaultTheme = () => {
 const dialogConfirm = () => {
   console.log("点击确定");
   resetDialog.value = false;
+};
+
+//打开logo介绍弹窗
+const showLogoDialog = () => {
+  logoDialog.value = true;
 };
 </script>
 <style lang="scss">
@@ -260,6 +299,11 @@ const dialogConfirm = () => {
         margin-left: 6px;
         color: $neutral-color-4;
         cursor: pointer;
+      }
+      &:hover {
+        i {
+          color: $brand-base-color-6;
+        }
       }
     }
     .setting-choose-item {
@@ -439,6 +483,7 @@ const dialogConfirm = () => {
   .sub-content {
     padding-left: 42px;
     font-size: 14px;
+    line-height: 18px;
     color: $error-base-color-6;
   }
   .logo-footer {
@@ -465,6 +510,7 @@ const dialogConfirm = () => {
         em {
           font-style: normal;
           font-size: 18px;
+          margin-right: 8px;
         }
       }
     }
@@ -481,6 +527,38 @@ const dialogConfirm = () => {
     margin-bottom: 20px;
     span {
       margin-left: 8px;
+    }
+  }
+
+  .descImg {
+    width: 100%;
+    height: 400px;
+    img {
+      width: 100%;
+    }
+  }
+
+  .applyContent {
+    padding: 65px 0 60px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    i {
+      font-size: 70px;
+      color: $success-base-color-6;
+    }
+    .successCon {
+      font-size: 22px;
+      color: $text-plain;
+      margin: 18px 0;
+    }
+    .subSuccessCon {
+      padding: 0 120px;
+      font-size: 14px;
+      text-align: center;
+      line-height: 20px;
+      color: $text-auxiliary;
     }
   }
 }

@@ -1,6 +1,11 @@
 <!-- 通用弹窗 -->
 <template>
-  <el-dialog v-model="dialogVisible" :title="title" :width="width">
+  <el-dialog
+    v-model="dialogVisible"
+    :title="title"
+    :width="width"
+    @close="cancel"
+  >
     <slot name="dialogBody"></slot>
     <template #footer>
       <div class="dialog-footer">

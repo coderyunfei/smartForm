@@ -1,0 +1,15 @@
+export const themeConfig = {
+  bgColor: "",
+  bgUrl: "",
+  isBgColor: true,
+  isHeadImg: true,
+  headImgUrl: "",
+  contentBgColor: "",
+  componentColor: "",
+  isDefaultComponentColor: true,
+  componentDisplay: "top",
+  isDefaultLogo: true,
+  selfLogoUrl: "",
+  bottomGuideContent: "",
+  logoLinkUrl: "",
+};

@@ -1,0 +1,36 @@
+
+ body{
+   .el-dialog{
+     // 弹窗头部
+     &>.el-dialog__header{
+      box-sizing: border-box;
+      padding: {
+        top:0;
+        bottom: 0px;
+      }
+      border-bottom: 1px solid $line-dialog;
+      height: 57px;
+      line-height: 57px;
+      background: $line-cut-light;
+      margin-right: 0px;
+      &>.el-dialog__title{
+        line-height: 57px;
+      }
+      &>.el-dialog__headerbtn{
+        top:0;
+      }
+     }
+     // 弹窗身体
+     &>.el-dialog__body{
+       padding: 30px 25px;
+     }
+     // 弹窗foot
+     &>.el-dialog__footer{
+       box-sizing: border-box;
+       padding: 0 20px;
+       height: 60px;
+       line-height: 60px;
+       border-top: 1px solid rgba(0,0,0 ,0.09);
+     }
+   }
+ }

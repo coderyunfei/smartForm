@@ -1,0 +1,44 @@
+
+ body{
+  .el-message {
+    padding: 15px;
+  }
+  .el-message-box{
+    // 弹窗头部
+    &>.el-message-box__header{
+     box-sizing: border-box;
+     padding: {
+       top:0;
+       bottom: 0px;
+     }
+     border-bottom: 1px solid $line-dialog;
+     height: 57px;
+     line-height: 57px;
+     background: $line-cut-light;
+     &>.el-message-box__title{
+       line-height: 57px;
+     }
+     &>.el-message-box__btns{
+      width: 80px;
+      height: 32px;
+       // top:0;
+     }
+    &>.el-message-box__headerbtn {
+      top: 0px !important;
+      line-height: 57px;
+    }
+    }
+    // 弹窗身体
+    &>.el-message-box__body{
+      padding: 30px 25px;
+    }
+    // 弹窗foot
+    &>.el-message-box__footer{
+      box-sizing: border-box;
+      padding: 0 20px;
+      height: 60px;
+      line-height: 60px;
+      border-top: 1px solid rgba(0,0,0 ,0.09);
+    }
+  }
+}

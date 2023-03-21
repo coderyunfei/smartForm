@@ -1,0 +1,187 @@
+$base-green: #75bb6b; // 绿色
+$base-deepBlue: #3a4c67; // 深蓝色
+$base-menuDaub: #f3f6fd; // 菜单栏底色（该颜色用于文字按钮以及菜单。）
+$base-lineGray: #f5f7fa; // 浅灰色（用于鼠标经过可触发区域时，背景色的变更）
+$base-black: #000000; //全黑
+
+$text-label: #4e5969; // 标签颜色（点赞回复，tag）
+$text-tip: #cccccc; // 提示文字
+
+// 线条颜色
+$line-table: #e0e6ed; // 表格线条
+$line-filter: #e0e6ed; // 筛选框线条
+$line-input: #d8dce6; // 输入框线条
+$line-cut-light: #f2f2f2; // 较浅分割线条 +（dialog 顶部弹窗背景色）
+$line-cut-deep: #e9e9e9; // 较深分割线条
+$line-cut-table: #e5e6eb; // 表格分割线
+$line-dialog: #d9d9d9; // 弹窗中使用到到border 色
+
+// 背景颜色
+$bg-menu: #3a4c67; // 一级、二级菜单背景色
+$bg-primary: #f2f3f5; // 底色（默认背景色,大背景色）
+$bg-tag: #efefef; // 标签背景色
+$bg-table: #f7f8fa; // 表头背景色
+$bg-li: #f3f6fd; // 列表背景色
+$bg-blue: #e9f1fd;
+
+// 表格颜色
+$table-head-bg: #f7f8fa; // 表格头部背景
+
+// 标签颜色
+$tag-orange: #ff8c2e; // 橙色标签
+$tag-blue: #4dacff; // 蓝色标签
+$tag-green: #27d65c; // 绿色标签
+$tag-purple: #8d4eda; // 紫色标签
+$tag-yellow: #ebe842; // 黄色标签
+$tag-red: #f7716c; // 红色标签
+$tag-blue-deep: #a1a9b6; // 深蓝标签
+$tag-gray: #929292; // 灰色标签
+
+// 图标及自定义icon
+$icon-orange: #ff8c2e;
+$icon-red: #f7716c;
+$icon-green: #29dae0;
+$icon-yellow: #ffc849;
+$icon-blue: #4dacff;
+$icon-deep-blue: #5776ff;
+
+$field-width: 430px; // 表单字段基本的宽度
+$field-width-small: 210px; // 表单字段 （小一点的 -- 时间|下拉）
+
+$shadow-top: 0 -2px 5px rgba(66, 77, 99, 0.1);
+$shadow-bottom: 0 2px 5px rgba(66, 77, 99, 0.1);
+$shadow-left: -2px 0 5px rgba(66, 77, 99, 0.1);
+$shadow-right: 2px 0 5px rgba(66, 77, 99, 0.1);
+
+//  *****************新版UI色彩规范*********************
+
+// 文字颜色
+$text-main: #323233; // 重要正文
+$text-plain: #646566; // 普通正文
+$text-auxiliary: #969799; // 辅助文字
+$text-grey: #c8c9cc; // 置灰
+$base-white: #ffffff;
+
+// 主色: 1-10为色阶
+$brand-color-1: #fff5e8;
+$brand-color-2: #ffe0ba;
+$brand-color-3: #ffc78b;
+$brand-color-4: #ffab5d;
+$brand-color-5: #ff8c2e;
+$brand-base-color-6: #ff6a00;
+$brand-color-7: #d25100;
+$brand-color-8: #a63a00;
+$brand-color-9: #792600;
+$brand-color-0: #4d1600;
+
+// 错误色: 1-10为色阶
+$error-color-1: #ffece8;
+$error-color-2: #fdcfc8;
+$error-color-3: #fbb1a9;
+$error-color-4: #f9928a;
+$error-color-5: #f7716c;
+$error-base-color-6: #f54e4e;
+$error-color-7: #cb3036;
+$error-color-8: #a11a23;
+$error-color-9: #770914;
+$error-color-0: #4d000a;
+
+// 成功色: 1-10为色阶
+$success-color-1: #e8ffec;
+$success-color-2: #b2f5c0;
+$success-color-3: #80eb99;
+$success-color-4: #4bcc6d;
+$success-color-5: #27d65c;
+$success-base-color-6: #00c241;
+$success-color-7: #00ac3f;
+$success-color-8: #008c38;
+$success-color-9: #006c2f;
+$success-color-0: #004d24;
+
+// 警告色: 1-10为色阶
+$warning-color-1: #ffece8;
+$warning-color-2: #fff2c0;
+$warning-color-3: #ffe798;
+$warning-color-4: #ffd971;
+$warning-color-5: #ffc849;
+$warning-base-color-6: #ffb521;
+$warning-color-7: #d28d14;
+$warning-color-8: #a6680b;
+$warning-color-9: #794604;
+$warning-color-0: #4d2900;
+
+// 链接色: 1-10为色阶
+$link-color-1: #e8f7ff;
+$link-color-2: #c1e8ff;
+$link-color-3: #9ad7ff;
+$link-color-4: #74c3ff;
+$link-color-5: #4dacff;
+$link-base-color-6: #248df5;
+$link-color-7: #186fd2;
+$link-color-8: #0c4fa6;
+$link-color-9: #053379;
+$link-color-0: #001c40;
+
+// 中性色: 1-10为色阶
+$neutral-color-1: #f7f8fa; // 常用背景色
+$neutral-color-2: #f2f3f5; // 背景填充色
+$neutral-color-3: #e5e6eb; // 分割线颜色，线条色
+$neutral-color-4: #c9cdd4;
+$neutral-color-5: #a9aeb8;
+$neutral-color-6: #86909c;
+$neutral-color-7: #6b7785;
+$neutral-color-8: #4e5969;
+$neutral-color-9: #272e3b;
+$neutral-color-0: #1d2129;
+
+// 拓展色: 1-10为色阶 碧涛青/Cyan Color
+$cyan-color-1: #e8fffd;
+$cyan-color-2: #b4f7f3;
+$cyan-color-3: #83efec;
+$cyan-color-4: #54e8e8;
+$cyan-color-5: #29dae0;
+$cyan-color-6: #00c8d8;
+$cyan-color-7: #00a3b5;
+$cyan-color-8: #007f92;
+$cyan-color-9: #005d6f;
+$cyan-color-0: #003d4d;
+
+// 拓展色: 1-10为色阶 极致蓝/Blue Color
+$blue-color-1: #e8feed;
+$blue-color-2: #c4d5ff;
+$blue-color-3: #a0b7ff;
+$blue-color-4: #7b98ff;
+$blue-color-5: #5776ff;
+$blue-color-6: #3352ff;
+$blue-color-7: #2034d2;
+$blue-color-8: #111da6;
+$blue-color-9: #060c79;
+$blue-color-0: #00014d;
+
+// 拓展色: 1-10为色阶 柠檬黄/Lemon Yellow Color
+$yellow-color-1: #feffe6;
+$yellow-color-2: #fefebe;
+$yellow-color-3: #edfa94;
+$yellow-color-4: #fcf26b;
+$yellow-color-5: #ebe842;
+$yellow-color-6: #fad419;
+$yellow-color-7: #cfaf0f;
+$yellow-color-8: #a38408;
+$yellow-color-9: #785d03;
+$yellow-color-0: #4d3800;
+
+// 拓展色: 1-10为色阶 紫罗兰/violets Color
+$violets-color-1: #f5e8ff;
+$violets-color-2: #ddbef6;
+$violets-color-3: #c396ed;
+$violets-color-4: #a871e3;
+$violets-color-5: #8d4eda;
+$violets-color-6: #722ed1;
+$violets-color-7: #551db0;
+$violets-color-8: #551db0;
+$violets-color-9: #27066e;
+$violets-color-0: #16004d;
+
+:export {
+  textPlain: $text-plain;
+}

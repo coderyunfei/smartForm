@@ -2,7 +2,10 @@ export default function setupClickOutside(app) {
   const clickOutside = {
     mounted(el, binding) {
       function eventHandler(e) {
-        if (el.contains(e.target)) {
+        if (
+          el.contains(e.target) ||
+          e.target.className.includes("exludeClass")
+        ) {
           return false;
         }
         // 如果绑定的参数是函数，正常情况也应该是函数，执行

@@ -1,5 +1,9 @@
 <template>
-  <div class="theme-setting" v-click-outside="onClickOutside">
+  <div
+    class="theme-setting"
+    v-click-outside="onClickOutside"
+    v-show="themeDialog"
+  >
     <ul>
       <li>
         <div class="setting-title">背景</div>
@@ -125,31 +129,105 @@
           </div>
         </div>
       </li>
-      <div class="resetTheme">
+      <div class="resetTheme" @click="openResetDefaultTheme">
         <i class="web-iconfont web-icon-zhongzuo"></i>
         <span>恢复默认主题</span>
       </div>
     </ul>
+    <!-- 恢复默认主题弹窗 -->
+    <common-dialog
+      v-model:visible="resetDialog"
+      title="恢复默认主题"
+      width="420px"
+      @confirmCb="dialogConfirm"
+    >
+      <template #dialogBody>
+        <div class="content">
+          <i class="cancel_icon el-icon-warning"></i>
+          <span>确定恢复吗？</span>
+        </div>
+        <div class="sub-content">
+          背景色、文本与组件色彩等主题相关设置都将恢复到初始状态
+        </div>
+      </template>
+    </common-dialog>
+
+    <!-- 专属logo弹窗 -->
+    <common-dialog
+      v-model:visible="logoDialog"
+      title="企业专属LOGO功能说明"
+      width="900px"
+      :showFooter="showFooter"
+      @confirmCb="dialogConfirm"
+    >
+      <template #dialogBody>
+        <div class="logoDesc">
+          <i class="web-iconfont web-icon-crown-fill"></i>
+          <span
+            >企业专属LOGO功能，可设置在网页顶部、表单底部展示企业LOGO及文字，突显企业品牌</span
+          >
+        </div>
+        <img src="" alt="" />
+      </template>
+      <template #defineFooter>
+        <div class="dialog-footer logo-footer">
+          <div class="footer-left">
+            旗舰版限时免费，可升级套餐或单独开通使用
+          </div>
+          <div class="footer-right">
+            <span class="oldprice">原价 499元/年</span>
+            <span class="nowprice"><em>180</em>元/年</span>
+            <el-button type="primary">申请开通</el-button>
+          </div>
+        </div>
+      </template>
+    </common-dialog>
   </div>
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
+import { ref } from "vue";
 
+import commonDialog from "./common-dialog.vue";
 const radio1 = ref("1");
+const showFooter = ref(false);
+const logoDialog = ref(true);
+const resetDialog = ref(false);
 
+const emit = defineEmits(["update:themeDialog"]);
+const props = defineProps({
+  themeDialog: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+// //点击了外部dom，关闭主题设置弹窗
 const onClickOutside = () => {
-  console.log("点击了外部 DOM");
+  console.log("222");
+  emit("update:themeDialog", false);
+};
+
+// 打开恢复默认主题弹窗
+const openResetDefaultTheme = () => {
+  resetDialog.value = true;
+};
+// 恢复默认主题弹窗点击确定
+const dialogConfirm = () => {
+  console.log("点击确定");
+  resetDialog.value = false;
 };
 </script>
-<style>
-.theme-setting .el-radio {
-  width: 100px;
-  margin-right: 40px;
-}
-.theme-setting .el-upload--picture-card {
-  width: 80px;
-  height: 40px;
+<style lang="scss">
+.theme-setting {
+  .el-radio {
+    width: 100px;
+    margin-right: 40px;
+  }
+  .el-upload--picture-card {
+    width: 80px;
+    height: 40px;
+  }
 }
 </style>
 <style lang="scss" scoped>
@@ -172,6 +250,12 @@ const onClickOutside = () => {
       font-size: 14px;
       color: $text-plain;
       margin-bottom: 20px;
+      font-weight: bold;
+      span {
+        &:first-child {
+          font-weight: bold;
+        }
+      }
       i {
         margin-left: 6px;
         color: $neutral-color-4;
@@ -188,10 +272,16 @@ const onClickOutside = () => {
         height: 40px;
         background-color: $neutral-color-3;
         margin-right: 60px;
+        border-radius: 4px;
+        &:hover {
+          border: 1px dashed $brand-base-color-6;
+          cursor: pointer;
+        }
       }
       .use-img {
+        cursor: pointer;
         background-color: $neutral-color-1;
-        border: 2px dashed $neutral-color-2;
+        border: 1px dashed $neutral-color-2;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -199,6 +289,12 @@ const onClickOutside = () => {
         i {
           font-size: 18px;
           color: $neutral-color-4;
+        }
+        &:hover {
+          i {
+            font-size: 18px;
+            color: $brand-base-color-6;
+          }
         }
       }
     }
@@ -224,7 +320,11 @@ const onClickOutside = () => {
             height: 40px;
             background-color: $neutral-color-3;
             margin-right: 36px;
-            border-radius: 8px;
+            border-radius: 4px;
+            &:hover {
+              border: 1px dashed $brand-base-color-6;
+              cursor: pointer;
+            }
           }
           span {
             margin-bottom: 8px;
@@ -267,12 +367,13 @@ const onClickOutside = () => {
             color: $text-plain;
           }
           .use-img {
+            cursor: pointer;
             width: 80px;
             height: 40px;
             background-color: $neutral-color-3;
-            margin: 12px 82px 12px 0;
+            margin: 12px 82px 16px 0;
             background-color: $neutral-color-1;
-            border: 2px dashed $neutral-color-3;
+            border: 1px dashed $neutral-color-3;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -281,7 +382,22 @@ const onClickOutside = () => {
               font-size: 18px;
               color: $neutral-color-4;
             }
+            &:hover {
+              border: 1px dashed $brand-base-color-6;
+              i {
+                font-size: 18px;
+                color: $brand-base-color-6;
+              }
+            }
           }
+        }
+      }
+      .logo-guide-content {
+        margin-bottom: 16px;
+        span {
+          color: $text-plain;
+          display: inline-block;
+          margin-bottom: 12px;
         }
       }
     }
@@ -297,8 +413,74 @@ const onClickOutside = () => {
     border: 1px solid $neutral-color-3;
     font-size: 14px;
     color: $text-plain;
+    cursor: pointer;
     i {
       font-size: 20px;
+    }
+    &:hover {
+      color: $brand-base-color-6;
+    }
+  }
+
+  .content {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 24px;
+      color: $brand-color-4;
+      margin-right: 18px;
+    }
+    span {
+      font-size: 14px;
+      color: $text-main;
+    }
+  }
+  .sub-content {
+    padding-left: 42px;
+    font-size: 14px;
+    color: $error-base-color-6;
+  }
+  .logo-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    .footer-left {
+      font-size: 14px;
+      color: $text-plain;
+    }
+    .footer-right {
+      display: flex;
+      align-items: center;
+      .oldprice {
+        font-size: 12px;
+        text-decoration: line-through;
+        color: $text-auxiliary;
+        margin-right: 8px;
+      }
+      .nowprice {
+        font-size: 12px;
+        color: $brand-base-color-6;
+        margin-right: 32px;
+        em {
+          font-style: normal;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .logoDesc {
+    width: 100%;
+    height: 40px;
+    background-color: $brand-color-1;
+    display: flex;
+    align-items: center;
+    color: $brand-base-color-6;
+    padding: 0 18px;
+    margin-bottom: 20px;
+    span {
+      margin-left: 8px;
     }
   }
 }

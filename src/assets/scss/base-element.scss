@@ -199,10 +199,16 @@ input:-webkit-autofill {
 }
 
 .el-button:hover,
-.el-button:focus {
+.el-button:focus,
+.el-button.is-plain:hover,
+.el-button.is-plain:focus {
   color: $brand-base-color-6;
   background: $brand-color-1;
   border-color: $brand-color-2;
+}
+
+.el-input__inner:focus {
+  border-color: $brand-base-color-6;
 }
 
 .el-radio__input.is-checked .el-radio__inner {
@@ -210,5 +216,10 @@ input:-webkit-autofill {
   background: $brand-base-color-6;
 }
 .el-radio__input.is-checked + .el-radio__label {
+  color: $brand-base-color-6;
+}
+
+.el-dialog__headerbtn:focus .el-dialog__close,
+.el-dialog__headerbtn:hover .el-dialog__close {
   color: $brand-base-color-6;
 }

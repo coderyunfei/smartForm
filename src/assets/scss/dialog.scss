@@ -1,11 +1,10 @@
-
- body{
-   .el-dialog{
-     // 弹窗头部
-     &>.el-dialog__header{
+body {
+  .el-dialog {
+    // 弹窗头部
+    & > .el-dialog__header {
       box-sizing: border-box;
       padding: {
-        top:0;
+        top: 0;
         bottom: 0px;
       }
       border-bottom: 1px solid $line-dialog;
@@ -13,24 +12,28 @@
       line-height: 57px;
       background: $line-cut-light;
       margin-right: 0px;
-      &>.el-dialog__title{
+      & > .el-dialog__title {
+        font-size: 16px;
         line-height: 57px;
       }
-      &>.el-dialog__headerbtn{
-        top:0;
+      & > .el-dialog__headerbtn {
+        i {
+          font-size: 14px;
+        }
       }
-     }
-     // 弹窗身体
-     &>.el-dialog__body{
-       padding: 30px 25px;
-     }
-     // 弹窗foot
-     &>.el-dialog__footer{
-       box-sizing: border-box;
-       padding: 0 20px;
-       height: 60px;
-       line-height: 60px;
-       border-top: 1px solid rgba(0,0,0 ,0.09);
-     }
-   }
- }
+    }
+    // 弹窗身体
+    & > .el-dialog__body {
+      padding: 24px 20px 20px 26px;
+    }
+
+    // 弹窗foot
+    & > .el-dialog__footer {
+      box-sizing: border-box;
+      padding: 0 20px;
+      height: 60px;
+      line-height: 60px;
+      border-top: 1px solid rgba(0, 0, 0, 0.09);
+    }
+  }
+}

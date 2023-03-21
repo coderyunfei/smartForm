@@ -35,7 +35,10 @@
     <div class="nav-right">
       <i class="web-iconfont web-icon-chexiao1 noEdit"></i>
       <i class="web-iconfont web-icon-zhongzuo"></i>
-      <i class="web-iconfont web-icon-bg-colors"></i>
+      <i
+        class="web-iconfont web-icon-bg-colors exludeClass"
+        @click="openThemeDialog"
+      ></i>
       <i class="web-iconfont web-icon-eye"></i>
       <div class="operate-btn">
         <el-button>仅保存</el-button>
@@ -44,7 +47,7 @@
     </div>
 
     <!-- 主题弹窗 -->
-    <theme-setting></theme-setting>
+    <theme-setting v-model:themeDialog="themeDialog"></theme-setting>
   </div>
 </template>
 <script setup>
@@ -52,9 +55,15 @@ import { ref } from "vue";
 import themeSetting from "@/components/dialog/theme-setting.vue";
 
 const activeStep = ref(1);
+const themeDialog = ref(false);
 
+// 点击下一步
 const next = () => {
   if (activeStep.value++ > 2) activeStep.value = 1;
+};
+//打开设置主题弹窗
+const openThemeDialog = () => {
+  themeDialog.value = true;
 };
 </script>
 
@@ -125,6 +134,7 @@ const next = () => {
     i {
       font-size: 20px;
       margin-right: 20px;
+      cursor: pointer;
       &:hover {
         color: $brand-base-color-6;
       }

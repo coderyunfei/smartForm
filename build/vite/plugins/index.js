@@ -6,7 +6,7 @@ import vue from "@vitejs/plugin-vue";
 // import vueJsx from '@vitejs/plugin-vue-jsx';
 // import vueSetupExtend from 'vite-plugin-vue-setup-extend';
 // import { ConfigSvgIconsPlugin } from './svgIcons';
-// import { AutoRegistryComponents } from "./component";
+import { AutoRegistryComponents } from "./component";
 // import { ConfigCompressPlugin } from './compress';
 // import { ConfigImageminPlugin } from './imagemin';
 
@@ -25,7 +25,7 @@ export function createVitePlugins(isBuild) {
   ];
 
   // // 自动按需引入组件
-  // vitePlugins.push(AutoRegistryComponents());
+  vitePlugins.push(AutoRegistryComponents());
 
   // 开启.gz压缩  rollup-plugin-gzip
   // vitePlugins.push(ConfigCompressPlugin());
